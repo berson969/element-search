@@ -1,7 +1,7 @@
 const menuLinks = document.querySelectorAll('.menu__link');
 
 menuLinks.forEach((link) => {
-    link.addEventListener('click', (event) => {
+    link.onclick =  (event) => {
 
         const subMenus = document.querySelectorAll('.menu');
 
@@ -16,5 +16,5 @@ menuLinks.forEach((link) => {
             event.preventDefault();
             subMenu.classList.toggle('menu_active')
         }
-    })
+    }
 })
