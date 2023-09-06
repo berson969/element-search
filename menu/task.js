@@ -3,18 +3,22 @@ const menuLinks = document.querySelectorAll('.menu__link');
 menuLinks.forEach((link) => {
     link.onclick =  (event) => {
 
-        const subMenus = document.querySelectorAll('.menu');
+        const subMenus = document.querySelectorAll('.menu_sub');
 
         subMenus.forEach((subMenu) => {
-            if (subMenu.parentElement.parentElement === link.closest('.menu')) {
+
+        const comparison_1 = link.parentElement === subMenu.parentElement;
+        const comparison_2 = link.parentElement.parentElement === subMenu.parentElement.parentElement;
+
+            if (!comparison_1 && comparison_2) {
                 subMenu.classList.remove('menu_active');
             }
-        });
+        })
 
-        const subMenu = link.closest('.menu__item').querySelector('.menu_sub')
-        if (subMenu) {
+        const isSubMenu = link.closest('.menu__item').querySelector('.menu_sub')
+        if (isSubMenu) {
             event.preventDefault();
-            subMenu.classList.toggle('menu_active')
+            isSubMenu.classList.toggle('menu_active');
         }
     }
 })

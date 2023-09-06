@@ -3,6 +3,7 @@ popup.classList.add('modal_active');
 
 const nextButton = document.querySelector('.show-success')
 nextButton.onclick = () => {
+    popup.classList.remove('modal_active')
     const nextPopup = document.getElementById('modal_success');
     nextPopup.classList.add('modal_active')
 }
